@@ -92,3 +92,10 @@ def test_parse_international():
     assert info.type == "国際電話"
     assert info.area_code is None
     assert info.parts == ["010", "81355554444"]
+
+
+def test_parse_international2():
+    info = jp_phone_numbers.parse("12024558888")
+    assert info.type == "国外"
+    assert info.area_code is None
+    assert info.parts == ["12024558888"]

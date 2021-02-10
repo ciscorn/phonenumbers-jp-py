@@ -50,9 +50,11 @@ def parse(number: str):
     prefix = ""
     for d in range(1, 6 + 1):
         prefix = number[0:d]
-        if prefix in _data.PREFIXES:
-            info = _data.PREFIXES[prefix]
-            break
+        cand = _data.PREFIXES.get(prefix)
+        if cand:
+            if number.startswith("0") or (len(number) == cand["f"]):
+                info = cand
+                break
 
     if info:
         n1 = prefix[: info["f"]]
@@ -72,6 +74,8 @@ def parse(number: str):
         res.type = info["t"]
 
     else:
+        if not number.startswith("0"):
+            res.type = "国外"
         res.parts.append(number)
 
     return res
