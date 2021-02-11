@@ -47,14 +47,18 @@ def parse(number: str):
             res.parts.append(p)
             number = number[pl:]
 
+    if number in _data.SPECIALS:
+        sp = _data.SPECIALS[number]
+        res.type = "特番:" + sp["d"]
+        res.parts = [number]
+        return res
+
     prefix = ""
     for d in range(1, 6 + 1):
         prefix = number[0:d]
-        cand = _data.PREFIXES.get(prefix)
-        if cand:
-            if number.startswith("0") or (len(number) == cand["f"]):
-                info = cand
-                break
+        info = _data.PREFIXES.get(prefix)
+        if info:
+            break
 
     if info:
         n1 = prefix[: info["f"]]

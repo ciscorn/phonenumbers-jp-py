@@ -19,6 +19,7 @@ KOTEI_FILES = [
 
 providers = {}
 source = []
+specials = {}
 
 res = requests.get(BASE_URL + "000697542.xlsx")
 df = pandas.read_excel(res.content, skiprows=8)
@@ -65,7 +66,7 @@ source.extend(
 
 
 def add_tokuban(number, desc):
-    source.append({"b": number, "b1": number, "m": 0, "type": f"特番:{desc}"})
+    specials[number] = {"d": f"{desc}"}
 
 
 add_tokuban("100", "オペレータ経由呼接続")
@@ -189,12 +190,18 @@ class PrefixData(TypedDict, total=False):
     t: str
     a: str
 
+class SpecialData(TypedDict, total=False):
+    d: str
+
 """
 )
 
 code.append("PREFIXES: Dict[str, PrefixData] = {\n")
 code.append(",\n".join(repr(k) + ": " + repr(v) for (k, v) in closeset.items()))
 code.append("\n}\n")
+
+code.append("SPECIALS: Dict[str, SpecialData] = " + repr(specials) + "\n")
+
 code.append("CARRIER_SELECTORS: Dict[str, str] = ")
 code.append(repr(providers))
 body = "".join(code)
