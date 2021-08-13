@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "jp-phone-numbers"
+name = "phonenumbers-jp"
 version = "0.0.1"
 description = "Analyze phone numbers in Japan"
 authors = ["Taku Fukada <naninunenor@gmail.com>"]
