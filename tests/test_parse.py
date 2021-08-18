@@ -8,7 +8,7 @@ def test_parse_kotei():
     assert info.message_area is not None
     assert info.message_area.number == "03"
     assert info.message_area.name == "東京"
-    assert info.selected_carrier is None
+    assert info.specified_carrier is None
 
     info = phonenumbers_jp.parse("0344445555")
     assert info.type == "固定"

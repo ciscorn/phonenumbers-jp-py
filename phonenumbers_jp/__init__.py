@@ -26,7 +26,7 @@ def parse(number: str) -> NumberInfo:
             prefix_len = 6
         p = number[:prefix_len]
         if p in _data.CARRIER_SELECTORS:
-            res.selected_carrier = NumberAndName(p, _data.CARRIER_SELECTORS[p])
+            res.specified_carrier = NumberAndName(p, _data.CARRIER_SELECTORS[p])
             res.parts.append(p)
             number = number[prefix_len:]
 
@@ -54,7 +54,7 @@ def parse(number: str) -> NumberInfo:
 
         if message_area := prefix_data.get("a"):
             res.message_area = NumberAndName(number=n1, name=message_area)
-        res.type = prefix_data.get("t", "不明")
+        res.type = prefix_data.get("t")
         res.subtype = prefix_data.get("st")
 
     else:
