@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "phonenumbers-jp"
-version = "0.0.1"
-description = "Analyze phone numbers in Japan"
+version = "0.0.2"
+description = "Analyze Japanese domestic phone numbers"
 authors = ["Taku Fukada <naninunenor@gmail.com>"]
 license = "MIT"
 homepage = "https://github.com/ciscorn/phonenumbers-jp-py"

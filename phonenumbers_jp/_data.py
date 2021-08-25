@@ -6,12 +6,12 @@ from .types import NumberTypes
 
 
 class _PrefixData(TypedDict, total=False):
-    f: int
-    m: int
-    l: Optional[int]
-    t: NumberTypes
-    st: str
-    a: str
+    f: int  # length of the first part
+    m: int  # length of the second part
+    l: Optional[int]  # total length
+    t: NumberTypes  # number type
+    st: str  # subtype
+    a: str  # message area name
 
 
 PREFIXES: Dict[str, _PrefixData] = {
