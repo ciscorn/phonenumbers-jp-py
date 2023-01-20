@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/ciscorn/phonenumbers-jp-py/branch/main/graph/badge.svg)](https://codecov.io/gh/ciscorn/phonenumbers-jp-py)
 [![pypi package](https://img.shields.io/pypi/v/phonenumbers-jp?color=%2334D058&label=pypi%20package)](https://pypi.org/project/phonenumbers-jp)
 
-Get attribute information from Japanese domestic phone numbers.
+Parse Japanese phone numbers and extracts information such as their type and area.
 
 日本国内の電話番号から、種別や市外局番などの情報を取得します。
 
@@ -49,7 +49,7 @@ NumberInfo(parts=['0120', '444', '444'], type='フリーダイヤル', subtype=N
 ```python
 NumberTypes = Literal[
     "特番", "固定", "携帯", "IP", "M2M", "国際電話", "国外",
-    "フリーダイヤル", "FMC", "ポケベル", "災害募金サービス", "ナビダイヤル"
+    "フリーダイヤル", "FMC", "ポケベル", "災害募金サービス", "ナビダイヤル", "テレドーム"
 ]
 
 @dataclass
