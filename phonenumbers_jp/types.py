@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List, Literal, Optional
 
-NumberTypes = Literal[
+NumberType = Literal[
     "特番",
     "固定",
     "携帯",
@@ -14,6 +14,7 @@ NumberTypes = Literal[
     "ポケベル",
     "災害募金サービス",
     "ナビダイヤル",
+    "テレドーム",
 ]
 
 
@@ -26,7 +27,7 @@ class NumberAndName:
 @dataclass
 class NumberInfo:
     parts: List[str] = field(default_factory=list)
-    type: Optional[NumberTypes] = None
+    type: Optional[NumberType] = None
     subtype: Optional[str] = None
     message_area: Optional[NumberAndName] = None
     specified_carrier: Optional[NumberAndName] = None

@@ -68,6 +68,14 @@ def test_parse_m2m():
     assert info.message_area is None
 
 
+def test_parse_0180():
+    info = phonenumbers_jp.parse("0180997722")
+    assert info.type == "テレドーム"
+    assert info.parts == ["0180", "997722"]
+    assert info.callerid_delivery is None
+    assert info.message_area is None
+
+
 def test_parse_184_186():
     info = phonenumbers_jp.parse("1840355556666")
     assert info.callerid_delivery == "withhold"
