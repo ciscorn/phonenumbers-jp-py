@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "phonenumbers-jp"
-version = "0.0.2"
+version = "0.1.0"
 description = "Analyze Japanese domestic phone numbers"
 authors = ["Taku Fukada <naninunenor@gmail.com>"]
 license = "MIT"
