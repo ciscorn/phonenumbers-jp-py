@@ -47,7 +47,7 @@ NumberInfo(parts=['0120', '444', '444'], type='フリーダイヤル', subtype=N
 ## API
 
 ```python
-NumberTypes = Literal[
+NumberType = Literal[
     "特番", "固定", "携帯", "IP", "M2M", "国際電話", "国外",
     "フリーダイヤル", "FMC", "ポケベル", "災害募金サービス", "ナビダイヤル", "テレドーム"
 ]
@@ -60,7 +60,7 @@ class NumberAndName:
 @dataclass
 class NumberInfo:
     parts: List[str] = field(default_factory=list)  # 分解された電話番号
-    type: Optional[NumberTypes] = None  # 種別
+    type: Optional[NumberType] = None  # 種別
     subtype: Optional[str] = None  # 特番の内容
     message_area: Optional[NumberAndName] = None  # メッセージエリア (市外局番)
     specified_carrier: Optional[NumberAndName] = None  # 事業者指定番号
