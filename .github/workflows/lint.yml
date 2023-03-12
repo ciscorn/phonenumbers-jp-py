@@ -36,14 +36,17 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      - name: flake8
+        run: poetry run flake8 .
+
       - name: pyright
         run: poetry run pyright .
+
+      - name: poetry lock
+        run: poetry lock --check
 
       - name: black
         run: poetry run black --check --diff .
 
       - name: isort
         run: poetry run isort --check --diff .
-
-      - name: flake8
-        run: poetry run flake8 .
