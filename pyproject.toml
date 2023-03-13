@@ -8,6 +8,7 @@ homepage = "https://github.com/ciscorn/phonenumbers-jp-py"
 repository = "https://github.com/ciscorn/phonenumbers-jp-py"
 keywords = []
 readme = "README.md"
+packages = [{ include = "phonenumbers_jp", from = "src" }]
 classifiers = [
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Libraries :: Python Modules",
@@ -35,10 +36,18 @@ known_third_party = []
 
 [tool.flake8]
 exclude = ".venv"
-extend-select = "B,C,E,F,W,B950"
+extend-select = "B950"
 extend-ignore = "E203,B008"
 max-line-length = 88
 
 [build-system]
 requires = ["poetry>=1.1.4"]
 build-backend = "poetry.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+addopts = ["--import-mode=importlib"]
+
+[tool.coverage.run]
+source = ['src/phonenumbers_jp']
+concurrency = ["multiprocessing"]

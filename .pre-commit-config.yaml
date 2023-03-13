@@ -25,7 +25,6 @@ repos:
       - id: flake8
         additional_dependencies:
           - flake8-bugbear
-          - flake8-docstrings
           - flake8-pyproject
   - repo: https://github.com/python-poetry/poetry
     rev: 1.4.0
